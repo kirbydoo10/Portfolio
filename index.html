@@ -552,6 +552,48 @@
   .tech-mono { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; color: #ffffff; }
   .tech-name { font-weight: 600; }
 
+  /* ── DASHBOARD MARQUEE (Experience) ── */
+  /* Same left↔right auto-scroll as the tech marquee above. Swap the src on
+     each .dash-shot img for your own screenshot — the placeholder icon only
+     shows while src is empty/broken. */
+  .dash-marquee { margin-top: 2rem; }
+  .dash-shot {
+    flex-shrink: 0;
+    width: 300px;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px dashed var(--border);
+    background: var(--surface);
+  }
+  .dash-shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  /* ── PROJECT THUMBNAIL PLACEHOLDER ── */
+  /* Blank rectangle beside each project title. Replace the whole
+     .case-thumb <div> with an <img class="case-thumb" src="your-image.png"
+     alt="..."> once you have a screenshot for that project. */
+  .case-thumb {
+    flex-shrink: 0;
+    width: 120px;
+    height: 88px;
+    border-radius: 12px;
+    border: 1px dashed var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+  }
+  .case-thumb svg { width: 28px; height: 28px; }
+  img.case-thumb { border-style: solid; object-fit: cover; }
+
   /* ── CASE ROWS (experience + projects) ── */
   .case {
     display: grid;
@@ -807,6 +849,22 @@
     .loader-bars span { animation: none; }
     .js-loading #loader { transition: opacity 0.4s ease-out; }
     #loader.is-done { transform: none; opacity: 0; }
+  }
+
+  /* ── DASHBOARD MARQUEE FULL-BLEED ── */
+  /* Break out of .case's left padding so the screenshot row spans the full
+     width of the section, flush with the heading above and divider below. */
+  .dash-marquee {
+    grid-column: 1 / -1;
+    margin-left: -6rem;
+    width: calc(100% + 6rem);
+  }
+
+  @media (max-width: 900px) {
+    .dash-marquee {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -1153,6 +1211,21 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
+
+      <!-- Dashboard screenshots: auto-scrolls left/right like the Tech Stack marquee.
+           Swap each <img src=""> below for your own screenshot (empty src shows
+           the placeholder icon). Add/remove <li class="dash-shot"> items as needed. -->
+      <div class="marquee dash-marquee">
+        <ul class="marquee-track" aria-label="beep™ dashboard screenshots">
+          <li class="dash-shot"><img src="BeepSummary.png" alt="Beep Summary"></li>
+          <li class="dash-shot"><img src="BeepUsage.png" alt="Beep Usage"></li>
+          <li class="dash-shot"><img src="NonBeepUsage.png" alt="Non-Beep Usage"></li>
+          <li class="dash-shot"><img src="TransportNonBeep.png" alt="Transport Non-Beep"></li>
+          <li class="dash-shot"><img src="BeepLoading.png" alt="Beep Loading"></li>
+          <li class="dash-shot"><img src="ParticipantAndRoutes.png" alt="Participant and Routes"></li>
+          <li class="dash-shot"><img src="PassengerAndExceptions.png" alt="Passenger and Exceptions"></li>
+        </ul>
+      </div>
     </article>
   </div>
 </section>
@@ -1168,9 +1241,14 @@
     </div>
 
     <article class="case">
-      <div>
-        <div class="case-title">Spotify Charts Pipeline Dashboard</div>
-        <div class="case-meta">Python · Data pipeline · Dashboard</div>
+      <div class="case-head">
+        <div class="case-thumb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <div>
+          <div class="case-title">Spotify Charts Pipeline Dashboard</div>
+          <div class="case-meta">Python · Data pipeline · Dashboard</div>
+        </div>
       </div>
       <div class="case-metric">
         <a href="https://github.com/kirbydoo10/Spotify-Charts-Pipeline-Dashboard" target="_blank" rel="noopener" class="text-link">View code
@@ -1181,9 +1259,14 @@
     </article>
 
     <article class="case">
-      <div>
-        <div class="case-title">NBA SQL Analytics Dashboard</div>
-        <div class="case-meta">SQL · Analytics · Dashboard</div>
+      <div class="case-head">
+        <div class="case-thumb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <div>
+          <div class="case-title">NBA SQL Analytics Dashboard</div>
+          <div class="case-meta">SQL · Analytics · Dashboard</div>
+        </div>
       </div>
       <div class="case-metric">
         <a href="https://github.com/kirbydoo10/NBA-SQL-Analytics-Dashboard" target="_blank" rel="noopener" class="text-link">View code
@@ -1194,9 +1277,14 @@
     </article>
 
     <article class="case">
-      <div>
-        <div class="case-title">Weather Forecast App</div>
-        <div class="case-meta">JavaScript · Weather API · CSS</div>
+      <div class="case-head">
+        <div class="case-thumb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <div>
+          <div class="case-title">Weather Forecast App</div>
+          <div class="case-meta">JavaScript · Weather API · CSS</div>
+        </div>
       </div>
       <div class="case-metric">
         <a href="https://github.com/kirbydoo10/WeatherForecast" target="_blank" rel="noopener" class="text-link">View code
@@ -1207,9 +1295,14 @@
     </article>
 
     <article class="case">
-      <div>
-        <div class="case-title">Crypto Tracker</div>
-        <div class="case-meta">JavaScript · Crypto API · CSS</div>
+      <div class="case-head">
+        <div class="case-thumb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </div>
+        <div>
+          <div class="case-title">Crypto Tracker</div>
+          <div class="case-meta">JavaScript · Crypto API · CSS</div>
+        </div>
       </div>
       <div class="case-metric">
         <a href="https://github.com/kirbydoo10/CryptoTracker" target="_blank" rel="noopener" class="text-link">View code
@@ -1324,16 +1417,17 @@
     window.__motionReady = true;
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Tech marquee: duplicate the track once so translateX(-100%) loops seamlessly.
-    const marquee = document.querySelector('.marquee');
-    if (marquee) {
+    // Marquees (tech stack + dashboard screenshots): duplicate each track once
+    // so translateX(-100%) loops seamlessly.
+    document.querySelectorAll('.marquee').forEach((marquee) => {
       const track = marquee.querySelector('.marquee-track');
+      if (!track) return;
       const clone = track.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
       clone.removeAttribute('aria-label');
       marquee.appendChild(clone);
       marquee.classList.add('is-running');
-    }
+    });
 
     if (reduceMotion || !document.documentElement.classList.contains('motion')) return;
 
