@@ -1,0 +1,99 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
+<style>
+  .dir { border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,.12); }
+  .dir * { box-sizing: border-box; }
+
+  /* A — Report */
+  .a { background:#f6f3ec; color:#1d1b17; padding:28px 30px; font-family:'Public Sans',sans-serif; }
+  .a .top { display:flex; justify-content:space-between; font-size:12px; color:#6b655a; border-bottom:1px solid #d9d2c3; padding-bottom:10px; margin-bottom:26px; }
+  .a h1 { font-family:'Newsreader',serif; font-weight:400; font-size:38px; line-height:1.08; letter-spacing:-.01em; margin:0 0 14px; }
+  .a h1 em { font-style:italic; color:#1f4e79; }
+  .a p { font-size:14px; line-height:1.6; color:#3d3930; margin:0 0 20px; max-width:440px; }
+  .a .row { display:grid; grid-template-columns:90px 1fr; gap:14px; border-top:1px solid #d9d2c3; padding:12px 0; font-size:13px; }
+  .a .row b { font-weight:600; }
+  .a .row span { color:#6b655a; }
+  .a .lnk { color:#1f4e79; text-decoration:underline; text-underline-offset:3px; font-size:13px; }
+
+  /* B — Analyst's workbench */
+  .b { background:#ffffff; color:#16202a; padding:26px 30px; font-family:'IBM Plex Sans',sans-serif; }
+  .b .top { display:flex; justify-content:space-between; align-items:center; font-size:13px; margin-bottom:24px; }
+  .b .top nav { display:flex; gap:16px; color:#5b6875; }
+  .b h1 { font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.015em; margin:0 0 10px; }
+  .b p { font-size:14px; line-height:1.55; color:#46535f; margin:0 0 20px; max-width:460px; }
+  .b .kpis { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #dde3e9; border-radius:4px; }
+  .b .kpi { padding:12px 14px; border-right:1px solid #dde3e9; }
+  .b .kpi:last-child { border-right:0; }
+  .b .kpi .v { font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; color:#0b6e4f; }
+  .b .kpi .l { font-size:11.5px; color:#5b6875; margin-top:2px; line-height:1.35; }
+  .b .btns { display:flex; gap:10px; margin-top:18px; }
+  .b .btn1 { background:#16202a; color:#fff; padding:9px 14px; border-radius:4px; font-size:13px; }
+  .b .btn2 { border:1px solid #c6ced6; padding:9px 14px; border-radius:4px; font-size:13px; }
+
+  /* C — Personal, confident */
+  .c { background:#15171a; color:#ecebe6; padding:28px 30px; font-family:'Public Sans',sans-serif; }
+  .c .top { display:flex; justify-content:space-between; font-size:13px; color:#9a9890; margin-bottom:34px; }
+  .c h1 { font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:40px; line-height:1; letter-spacing:-.03em; margin:0 0 16px; }
+  .c h1 span { color:#f2a93b; }
+  .c p { font-size:14.5px; line-height:1.6; color:#bdbbb3; max-width:440px; margin:0 0 22px; }
+  .c .pill { display:inline-block; border:1px solid #3a3d42; border-radius:999px; padding:6px 12px; font-size:12.5px; color:#d8d6cf; margin:0 6px 6px 0; }
+</style>
+
+<h2>Which direction feels like <em>you</em>?</h2>
+<p class="subtitle">Same real content in each — just the hero area. Judge the feel, not the details. Click one (or tell me what you'd mix).</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a-report" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="dir a">
+        <div class="top"><span>Lance Kirby Lazaro</span><span>Work · Projects · CV</span></div>
+        <h1>I turn messy transaction data into dashboards people <em>actually use.</em></h1>
+        <p>Data analyst & CS graduate (Mapúa MCL, 2026). Most recently built the transit reporting suite for beep™ at AF Payments.</p>
+        <div class="row"><b>2026</b><div><b>Data Analytics Intern, AF Payments</b><br><span>Athena SQL · Power BI · DAX — 8 transit segments</span></div></div>
+        <div class="row"><b>2026</b><div><b>IBM AI Developer · Google Data Analytics</b><br><span>+3 more certifications</span></div></div>
+        <a class="lnk">Download CV (PDF) →</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · The Report</h3>
+      <p>Editorial serif headline, paper tone, one ink-blue accent. Reads like a well-made résumé. Calm, credible, very un-template.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b-workbench" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="dir b">
+        <div class="top"><b>Lance Lazaro</b><nav><span>Work</span><span>Projects</span><span>Contact</span></nav></div>
+        <h1>Data analyst who builds the dashboards, not just the queries.</h1>
+        <p>SQL on Amazon Athena → Power Query → Power BI. Most recently at AF Payments, reporting on beep™ transit and retail payments.</p>
+        <div class="kpis">
+          <div class="kpi"><div class="v">8</div><div class="l">transit segments tracked in Power BI</div></div>
+          <div class="kpi"><div class="v">M+ rows</div><div class="l">of fare data cleaned & modelled</div></div>
+          <div class="kpi"><div class="v">5</div><div class="l">certifications (IBM, Google)</div></div>
+        </div>
+        <div class="btns"><span class="btn1">Download CV</span><span class="btn2">See the dashboard work</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · The Workbench</h3>
+      <p>Clean, structured, BI-tool flavour. Real numbers instead of "∞ lines of code". Tabular figures in mono only where it's data. Fastest for a recruiter to skim.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c-personal" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="dir c">
+        <div class="top"><span>Lance Lazaro</span><span>CV ↓</span></div>
+        <h1>Hi, I'm Lance.<br>I make data <span>make sense.</span></h1>
+        <p>Fresh CS grad from Mapúa MCL. Spent the summer at AF Payments turning millions of beep™ taps into Power BI dashboards for 8 transit segments.</p>
+        <span class="pill">SQL · Athena</span><span class="pill">Power BI · DAX</span><span class="pill">Python · Pandas</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · The Personal</h3>
+      <p>Keeps a dark mode, but warm charcoal + amber instead of neon. Bigger personality, friendlier voice. Most memorable, slightly less "corporate".</p>
+    </div>
+  </div>
+
+</div>
